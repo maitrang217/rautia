@@ -12,7 +12,6 @@ var $ = require('gulp-load-plugins')();
 gulp.task('styles', function () {
     return gulp.src('app/styles/main.scss')
         .pipe($.sass({errLogToConsole: true}))
-        .pipe($.uglify())
         .pipe($.autoprefixer('last 1 version'))
         .pipe(gulp.dest('app/styles'))
         .pipe(reload({stream:true}))
@@ -43,6 +42,10 @@ gulp.task('html', ['styles', 'scripts'], function () {
         .pipe($.useref())
         .pipe(gulp.dest('dist'))
         .pipe($.size());
+});
+
+gulp.task('phpunit', function() {
+    return gulp.src('app/*.php');
 });
 
 gulp.task('images', function () {
@@ -113,7 +116,7 @@ gulp.task('wiredep', function () {
 gulp.task('watch', ['serve'], function () {
  
     // watch for changes
-    gulp.watch(['app/*.html'], reload);
+    gulp.watch(['app/*.html, app/*.php'], reload);
  
     gulp.watch('app/styles/**/*.scss', ['styles']);
     gulp.watch('app/scripts/**/*.js', ['scripts']);

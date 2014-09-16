@@ -1,5 +1,5 @@
 {
-"name": "rautia",
+  "name": "rautia",
   "version": "0.0.0",
   "dependencies": {},
   "devDependencies": {
@@ -25,7 +25,8 @@
     "wiredep": "^1.7.0",
     "gulp-autoprefixer": "^0.0.7",
     "gulp-imagemin": "^0.5.0",
-    "streamqueue": "^0.1.0"
+    "streamqueue": "^0.1.0",
+    "gulp-phpunit": "~0.6.3"
   },
   "engines": {
     "node": ">=0.10.0"
